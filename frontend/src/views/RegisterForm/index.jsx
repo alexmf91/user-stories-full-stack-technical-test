@@ -17,7 +17,7 @@ export default function SignUpForm() {
       .matches(/[#]/, 'Password must contain one #'),
     confirmPassword: Yup.string().oneOf(
       [Yup.ref('password')],
-      'Passwords must match',
+      'Passwords must match'
     ),
   });
   const {
@@ -29,7 +29,10 @@ export default function SignUpForm() {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="register-form-view-component"
+    >
       <div>
         <label htmlFor="userName">Username</label>
         <input
