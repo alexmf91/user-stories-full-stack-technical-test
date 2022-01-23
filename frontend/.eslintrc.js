@@ -19,5 +19,6 @@ module.exports = {
     'eslint linebreak-style': [0, 'error', 'windows'],
     'implicit-arrow-linebreak': 0,
     'function-paren-newline': 0,
+    'react/jsx-props-no-spreading': 'off',
   },
 };
