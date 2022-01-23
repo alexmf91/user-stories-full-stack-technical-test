@@ -1,5 +1,12 @@
 @import './scss/partials/reset';
 
 body {
-  font-family: sans-serif;
+  font-family: monospace;
+  height: 95vh;
+  background: rgb(75, 253, 255);
+  background: linear-gradient(
+    175deg,
+    rgba(75, 253, 255, 1) 0%,
+    rgba(171, 123, 255, 1) 100%
+  );
 }
