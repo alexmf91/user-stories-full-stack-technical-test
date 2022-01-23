@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Home from './views/Home';
-import SignUpForm from './views/SignUpForm';
+import RegisterForm from './views/RegisterForm';
 import Footer from './components/Footer';
 
 import './App.scss';
@@ -14,7 +14,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/register" element={<SignUpForm />} />
+        <Route path="/register" element={<RegisterForm />} />
       </Routes>
       <Footer />
     </BrowserRouter>
