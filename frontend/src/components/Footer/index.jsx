@@ -5,7 +5,7 @@ import './Footer.scss';
 export default function Footer() {
   return (
     <footer>
-      <span>BeLike User Story&apos;s 2022 © Made with ♡ by Alex Muñoz</span>
+      <span>BeLike User Stories 2022 © Made with ♡ by Alex Muñoz</span>
     </footer>
   );
 }
