@@ -1,12 +1,20 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import toast, { Toaster } from 'react-hot-toast';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
+import { authRegister } from '../../redux/actions/actionCreators/auth';
+
 import './RegisterForm.scss';
 
-export default function SignUpForm() {
+export default function RegisterForm() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [isRegistered, setIsRegistered] = useState(false);
   const validationSchema = Yup.object().shape({
     userName: Yup.string().required('Username is required'),
     password: Yup.string()
@@ -17,7 +25,7 @@ export default function SignUpForm() {
       .matches(/[#]/, 'Password must contain one #'),
     confirmPassword: Yup.string().oneOf(
       [Yup.ref('password')],
-      'Passwords must match'
+      'Passwords must match',
     ),
   });
   const {
@@ -26,13 +34,28 @@ export default function SignUpForm() {
     formState,
     formState: { errors },
   } = useForm({ resolver: yupResolver(validationSchema), mode: 'onChange' });
-  const onSubmit = (data) => console.log(data);
+
+  function onSubmit(userData) {
+    dispatch(authRegister(userData));
+    setIsRegistered(true);
+  }
+
+  useEffect(() => {
+    if (isRegistered) {
+      toast.loading('Redirecting to login');
+      toast.success('Register Successfuly');
+      setTimeout(() => {
+        navigate('/login', { replace: true });
+      }, 2000);
+    }
+  }, [isRegistered]);
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="register-form-view-component"
     >
+      <Toaster />
       <div>
         <label htmlFor="userName">Username</label>
         <input
@@ -68,7 +91,7 @@ export default function SignUpForm() {
           className={`form-control ${
             errors.confirmPassword ? 'is-invalid' : ''
           }`}
-          id="password"
+          id="confirmPassword"
         />
         {errors.confirmPassword && (
           <span className="invalid-feedback">
@@ -78,6 +101,7 @@ export default function SignUpForm() {
       </div>
       <input
         type="submit"
+        value="Register"
         className="btn btn-primary mt-4 mx-auto d-flex"
         disabled={!formState.isValid}
       />
