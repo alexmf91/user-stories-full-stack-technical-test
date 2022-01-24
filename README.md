@@ -2,23 +2,25 @@
 
 You can find in the app:
 
-Semantic HTML
-Unit and component testing
-SASS
-Redux to handle local state
-Mobile first, full responsive styles
-Environment variables
-SOLID
-DRY
-ESLint
-npm start
+- Semantic HTML
+- Unit and component testing
+- SASS
+- Redux to handle local state
+- Mobile first, full responsive styles
+- Environment variables
+- SOLID
+- DRY
+- ESLint
+
 
 ## To Run the app:
 
-1- Go to backend folder and add a .env file with the .env.example content 
-2- Run npm ci in backend folder
-3- Go to frontend folder and add a .env.local file with the .env.example content
-4- Run npm ci in frontend folder
+- 1- Go to backend folder and add a .env file with the .env.example content 
+- 2- Run npm ci in backend folder
+- 3- Run npm start
+- 4- Go to frontend folder and add a .env.local file with the .env.example content
+- 5- Run npm ci in frontend folder
+- 6- Run npm start
 
 Open http://localhost:3000 to view it in the browser.
 
