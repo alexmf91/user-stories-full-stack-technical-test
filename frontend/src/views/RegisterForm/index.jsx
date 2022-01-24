@@ -42,8 +42,7 @@ export default function RegisterForm() {
 
   useEffect(() => {
     if (isRegistered) {
-      toast.loading('Redirecting to login');
-      toast.success('Register Successfuly');
+      toast.success('Register Successfuly, redirecting to login...');
       setTimeout(() => {
         navigate('/login', { replace: true });
       }, 2000);
